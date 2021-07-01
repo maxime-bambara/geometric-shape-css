@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Test CSS</title>
+
+ 
+</head>
+<body>
+	
+	<style>
+	.container{
+		display: grid;
+		grid-template-areas: "un un deux deux trois trois"
+							 "quatre quatre cinq cinq six six"
+							 "sept sept sept huit huit huit ";
+		width: 550px;
+		height: 400px;
+	}
+
+	.bloc{
+		margin-left: 10px;
+		margin-top: 30px;
+		border: 1px solid red;
+		box-sizing:border-box;
+	}
+
+	.bloc:first-child, .bloc:nth-child(3), .bloc:nth-child(5), .bloc:nth-child(7){background-color: blue;}
+
+	.bloc:nth-child(4), .bloc:nth-child(6){background-color: lightgray;}
+
+	.bloc:nth-child(2), .bloc:nth-child(4), .bloc:nth-child(6){border-radius: 16px;}
+
+	.bloc:first-child{grid-area: un;}
+
+	.bloc:nth-child(2){
+		background-color: yellow;
+		grid-area: deux;
+	}
+
+	.bloc:nth-child(3){grid-area: trois;}
+
+	.bloc:nth-child(4){grid-area: quatre;}
+
+	.bloc:nth-child(5){grid-area: cinq;}
+
+	.bloc:nth-child(6){grid-area: six;}
+
+	.bloc:nth-child(7){grid-area: sept;}
+
+	.bloc:nth-child(8){
+		grid-area: huit;
+		border: inherit;
+		background-color: black;
+		position: relative;
+	}
+	
+	.bloc:nth-child(8):after {
+		position: absolute;
+		content: "";
+		right: 0;		
+		border-top: 104px solid white;
+      	border-left: 100px solid transparent;
+	}
+	.bloc:nth-child(8)::before {
+		position: absolute;
+		content: "";
+		left: 0;
+		border-top: 104px solid white;
+     	border-right: 100px solid transparent;
+	}
+
+	</style>
+	
+  <img style="float:right" src="resultatcss.png">
+  
+ <div class="container">
+	<div class="bloc"></div>
+	<div class="bloc"></div>
+	<div class="bloc"></div>
+	<div class="bloc"></div>
+	<div class="bloc"></div>
+	<div class="bloc"></div>
+	<div class="bloc"></div>
+	<div class="bloc"></div>
+	
+ </div>
+ L'objectif est de reproduire l'image de droite en css, sans modifier le HTML.<br />
+ Astuce : environ 45 lignes de code non minifié, ou moins ;)
+
+</body>
+</html>
